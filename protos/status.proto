@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package status;
+
+service StatusService {
+  rpc UpdateStatus (StatusRequest) returns (StatusResponse);
+}
+
+message StatusRequest {
+  string user_id = 1;
+  string status_message = 2;
+}
+
+message StatusResponse {
+  bool success = 1;
+  string timestamp = 2;
+} 
