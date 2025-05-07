@@ -1,7 +1,17 @@
+/**
+ * Status Service Implementation
+ * Handles user status updates and provides response with timestamp
+ */
+
 import * as grpc from '@grpc/grpc-js';
 import { sendUnaryData, ServerUnaryCall } from '@grpc/grpc-js';
 import { StatusResponse, StatusRequest} from '../lib/utils';
 
+/**
+ * Updates a user's status
+ * @param call - gRPC call object containing the request
+ * @param callback - Callback to send the response
+ */
 export function UpdateStatus(
     call: ServerUnaryCall<StatusRequest, StatusResponse>,
     callback: sendUnaryData<StatusResponse>

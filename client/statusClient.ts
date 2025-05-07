@@ -1,10 +1,16 @@
+/**
+ * Status Service gRPC Client
+ * Demonstrates JSON object handling in gRPC communication
+ */
+
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import path from 'path';
 
+// Load proto file path relative to current directory
 const PROTO_PATH = path.join(__dirname, '../protos/status.proto');
 
-// Proto loader options for better type handling
+// Proto loader options for proper type handling and case preservation
 const protoOptions: protoLoader.Options = {
   keepCase: true,  // This ensures field names keep their original case
   longs: String,
@@ -13,10 +19,13 @@ const protoOptions: protoLoader.Options = {
   oneofs: true
 };
 
+// Load and parse protocol buffer definition
 const packageDef = protoLoader.loadSync(PROTO_PATH, protoOptions);
+
+// Create gRPC client object
 const grpcObj = grpc.loadPackageDefinition(packageDef) as any;
 
-// Initialize status service
+// Initialize Status service client
 const statusService = new grpcObj.status.StatusService(
   'localhost:50051',
   grpc.credentials.createInsecure()
