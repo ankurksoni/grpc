@@ -28,8 +28,6 @@ const statusRequest = {
   status_message: 'Working on gRPC implementation!'  // snake_case to match proto
 };
 
-console.log('📤 Sending Status Request:', JSON.stringify(statusRequest, null, 2));
-
 // Make the RPC call
 statusService.UpdateStatus(statusRequest, (err: any, response: any) => {
   if (err) {

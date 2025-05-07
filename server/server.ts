@@ -36,5 +36,4 @@ server.addService(statusService.service, { UpdateStatus });
 
 server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
   console.log('✅ gRPC Server running at http://0.0.0.0:50051');
-  server.start();
 });
