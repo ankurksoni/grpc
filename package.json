@@ -1,0 +1,25 @@
+{
+  "name": "nx-grpc",
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+  "proto:gen": "grpc_tools_node_protoc --ts_out ./gen --ts_opt esModuleInterop=true,forceLong=long --js_out=import_style=commonjs,binary:./gen --grpc_out=grpc_js:./gen -I ./protos ./protos/*.proto",
+  "server": "ts-node server/server.ts",
+  "client": "ts-node client/client.ts"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.3",
+    "@grpc/proto-loader": "^0.7.15"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.14",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
+    "grpc-tools": "^1.13.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
