@@ -6,7 +6,8 @@
   "proto:gen": "grpc_tools_node_protoc --ts_out ./gen --ts_opt esModuleInterop=true,forceLong=long --js_out=import_style=commonjs,binary:./gen --grpc_out=grpc_js:./gen -I ./protos ./protos/*.proto",
   "server": "ts-node server/server.ts",
   "client": "ts-node client/client.ts",
-  "status": "ts-node client/statusClient.ts"
+  "status": "ts-node client/statusClient.ts",
+  "api": "ts-node server/api.ts"
 },
   "keywords": [],
   "author": "",
